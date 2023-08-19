@@ -1,0 +1,75 @@
+{{ title }}
+<h1>{{ name }}</h1>
+<!-- my comment goes here -->
+<app-students></app-students>
+<app-teachers></app-teachers>
+<!--ONE WAY BINDING-->
+<!-- Property binding goes from Typescript to HTML -->
+
+<img [src] = "imageUrl"> <br>
+<a [href]="linkUrl"> Go to Google Search</a>
+
+<br><br>
+<!-- Event binding -->
+<!-- events flows from  html to typescript. html is where we trigger the event to do something, event binding is with regular brackets -->
+
+<button type="button" (click)="doSomething()"> Click Me</button>
+
+<br><br>
+
+<!-- Attribute binding -->
+<table>
+    <tr>
+        <td>A</td>
+        <td [attr.colspan]="columnSpan">B</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>D</td>
+        <td>E</td>
+    </tr>
+</table>
+
+<!-- class binding -->
+<p [class]= "blueClass"> Hello from the other side.</p>
+
+<!-- Style binding -->
+<p [style.background-color]="bgColor">Hello again from the other side.</p>
+<!-- this is like an inline styling ^^ -->
+
+<!-- Two-way binding -->
+<!-- data can flow in both directions --> 
+<input type="text" [(ngModel)] ="name"> {{name}}
+
+<!-- Directives -->
+
+<!-- ngClass -->
+
+<div [ngClass]="{'blueBg': !hasError, 'redBg': hasError}"> Another Text </div>
+
+<!-- ngStyle -->
+
+<div [ngStyle]="{'background-color':bgColor, 'color': 'red'}"> Yet another div</div>
+
+<!-- ngFor -->
+<ol>
+    <li *ngFor="let name of names"> {{ name }}</li>
+</ol>
+<!-- ngIf -->
+
+<div *ngIf="hasError; else elseMessage"> Name is required</div>
+<ng-template #elseMessage>
+    No error found.
+</ng-template>
+
+<!--ngSwitch-->
+<ul [ngSwitch]="currentTab">
+    <li *ngSwitchCase ="1"> Tab 1</li>
+    <li *ngSwitchCase ="2">Tab 2</li>
+    <li *ngSwitchCase ="3"> Tab 3</li>
+    <li *ngSwitchDefault>Tab 4</li>
+
+</ul>
+
+<!-- Custom Directive -->
+<div appCustom> Some Text</div>
